@@ -18,3 +18,13 @@ Scenario: Tentativa de lancamento de nota para aluno nao matriculado
   When o professor tenta lancar uma nota
   Then o sistema deve bloquear a operacao informando aluno nao encontrado
   And um log de alerta de seguranca deve ser registrado
+
+Scenario: Notificacao automatica de nota lancada
+  Given que o aluno "Jose" tem o email cadastrado
+  When a nota "10.0" for registrada no sistema
+  Then um email de notificacao deve ser enviado para o aluno
+
+Scenario: Calculo de media automatica apos segunda nota
+  Given que o aluno "Jose" tem duas notas cadastradas
+  When o sistema processa o fechamento do modulo
+  Then a media aritmetica deve ser calculada automaticamente
