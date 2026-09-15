@@ -22,3 +22,8 @@ Scenario: Notificacao automatica de nota lancada
   Given que o aluno "Jose" tem o email cadastrado
   When a nota "10.0" for registrada no sistema
   Then um email de notificacao deve ser enviado para o aluno
+
+Scenario: Calculo de media automatica apos segunda nota
+  Given que o aluno "Jose" tem duas notas cadastradas
+  When o sistema processa o fechamento do modulo
+  Then a media aritmetica deve ser calculada automaticamente
