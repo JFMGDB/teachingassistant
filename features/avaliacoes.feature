@@ -12,3 +12,8 @@ Scenario: Tentativa de cadastro de nota acima do limite maximo
   Given que o aluno "Jose" esta matriculado na disciplina
   When o professor lanca a nota "11.0"
   Then o sistema deve recusar o lancamento informando que a nota maxima e 10.0
+
+Scenario: Tentativa de lancamento de nota para aluno nao matriculado
+  Given que o aluno "Carlos" nao esta cadastrado na disciplina
+  When o professor tenta lancar uma nota
+  Then o sistema deve bloquear a operacao informando aluno nao encontrado
