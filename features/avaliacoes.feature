@@ -17,3 +17,8 @@ Scenario: Tentativa de lancamento de nota para aluno nao matriculado
   Given que o aluno "Carlos" nao esta cadastrado na disciplina
   When o professor tenta lancar uma nota
   Then o sistema deve bloquear a operacao informando aluno nao encontrado
+
+Scenario: Notificacao automatica de nota lancada
+  Given que o aluno "Jose" tem o email cadastrado
+  When a nota "10.0" for registrada no sistema
+  Then um email de notificacao deve ser enviado para o aluno
