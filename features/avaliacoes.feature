@@ -17,3 +17,4 @@ Scenario: Tentativa de lancamento de nota para aluno nao matriculado
   Given que o aluno "Carlos" nao esta cadastrado na disciplina
   When o professor tenta lancar uma nota
   Then o sistema deve bloquear a operacao informando aluno nao encontrado
+  And um log de alerta de seguranca deve ser registrado
